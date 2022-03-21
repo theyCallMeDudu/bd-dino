@@ -16,7 +16,7 @@ class FamiliaDinossauroList extends Component
 
     public function render()
     {
-        $familias_dinossauros = FamiliaDinossauro::where('no_familia_dinossauro', 'like', "%{$this->search}%")->get();
+        $familias_dinossauros = FamiliaDinossauro::where('no_familia_dinossauro', 'like', "%{$this->search}%")->paginate(5);
 
         return view('livewire.familia-dinossauro.familia-dinossauro-list', [
             'familias_dinossauros' => $familias_dinossauros

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\TipoDinossauro;
 
 use App\Models\TipoDinossauro;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class TipoDinossauroEdit extends Component
@@ -32,7 +33,7 @@ class TipoDinossauroEdit extends Component
             'no_tipo_dinossauro' => $this->no_tipo_dinossauro
         ]);
 
-        session()->flash('message', 'Registro atualizado com sucesso!');
+        Session::flash('msg_sucesso', 'Registro atualizado com sucesso!');
     }
 
     public function render()

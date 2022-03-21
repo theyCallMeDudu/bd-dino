@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Dinossauro;
 use App\Models\Dinossauro;
 use App\Models\FamiliaDinossauro;
 use App\Models\TipoDinossauro;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class DinossauroEdit extends Component
@@ -44,7 +45,7 @@ class DinossauroEdit extends Component
             'cd_tipo_dinossauro'    => $this->cd_tipo_dinossauro
         ]);
 
-        session()->flash('message', 'Registro atualizado com sucesso!');
+        Session::flash('msg_sucesso', 'Registro atualizado com sucesso!');
     }
 
     public function render()

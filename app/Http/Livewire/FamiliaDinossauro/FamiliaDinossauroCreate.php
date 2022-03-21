@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\FamiliaDinossauro;
 
 use App\Models\FamiliaDinossauro;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
@@ -24,7 +25,8 @@ class FamiliaDinossauroCreate extends Component
         $this->validate($rules, $feedback);
 
         FamiliaDinossauro::create([
-            'no_familia_dinossauro' => $this->no_familia_dinossauro
+            'no_familia_dinossauro' => $this->no_familia_dinossauro,
+            'dt_inclusao'           => Carbon::now()
         ]);
 
         Session::flash('msg_sucesso', 'Registro criado com sucesso!');

@@ -4,6 +4,8 @@ namespace App\Http\Livewire\TipoDinossauro;
 
 use Livewire\Component;
 use App\Models\TipoDinossauro;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class TipoDinossauroCreate extends Component
 {
@@ -23,10 +25,11 @@ class TipoDinossauroCreate extends Component
         $this->validate($rules, $feedback);
 
         TipoDinossauro::create([
-            'no_tipo_dinossauro' => $this->no_tipo_dinossauro
+            'no_tipo_dinossauro' => $this->no_tipo_dinossauro,
+            'dt_inclusao'        => Carbon::now()
         ]);
 
-        session()->flash('message', 'Registro criado com sucesso!');
+        Session::flash('msg_sucesso', 'Registro criado com sucesso!');
 
         $this->no_tipo_dinossauro = null;
     }

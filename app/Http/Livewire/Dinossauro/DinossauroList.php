@@ -3,13 +3,20 @@
 namespace App\Http\Livewire\Dinossauro;
 
 use App\Models\Dinossauro;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class DinossauroList extends Component
 {
+    public $search = '';
+
+    protected $queryString = [
+        'search' => ['except' => '']
+    ];
+
     public function render()
     {
-        $dinossauros = Dinossauro::paginate(5);
+        $dinossauros = Dinossauro::where('no_dinossauro', 'like', "%{$this->search}%")->paginate(5);
 
         return view('livewire.dinossauro.dinossauro-list', [
             'dinossauros' => $dinossauros
@@ -21,6 +28,6 @@ class DinossauroList extends Component
         $dino = Dinossauro::find($dinossauro);
         $dino->delete();
 
-        session()->flash('message', 'Registro removido com sucesso!');
+        Session::flash('msg_sucesso', 'Registro removido com sucesso!');
     }
 }

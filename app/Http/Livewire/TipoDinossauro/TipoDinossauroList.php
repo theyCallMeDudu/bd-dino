@@ -4,12 +4,19 @@ namespace App\Http\Livewire\TipoDinossauro;
 
 use Livewire\Component;
 use App\Models\TipoDinossauro;
+use Illuminate\Support\Facades\Session;
 
 class TipoDinossauroList extends Component
 {
+    public $search = '';
+
+    protected $queryString = [
+        'search' => ['except' => '']
+    ];
+
     public function render()
     {
-        $tipos_dinossauros = TipoDinossauro::paginate(5);
+        $tipos_dinossauros = TipoDinossauro::where('no_tipo_dinossauro', 'like', "%{$this->search}%")->paginate(5);
 
         return view('livewire.tipo-dinossauro.tipo-dinossauro-list', [
             'tipos_dinossauros' => $tipos_dinossauros
@@ -21,6 +28,6 @@ class TipoDinossauroList extends Component
         $tipo = TipoDinossauro::find($tipo_dinossauro);
         $tipo->delete();
 
-        session()->flash('message', 'Registro removido com sucesso!');
+        Session::flash('msg_sucesso', 'Registro removido com sucesso!');
     }
 }

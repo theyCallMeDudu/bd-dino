@@ -1,16 +1,15 @@
 <div>
-
     <x-slot name="header">
         <p class="text-2xl font-bold text-yellow-900 underline">Famílias</p>
     </x-slot>
 
-    <div class="mt-5 py-8 px-12 bg-white">
+    <div class="mt-5 py-8 px-16 bg-white">
         @include('includes.message')
         <a
             class="bg-lime-600 text-white rounded-lg py-2 px-2 hover:bg-lime-800"
             href="{{ route('familias-dinossauros.create') }}"
         >
-            Novo
+            Nova
         </a>
         <x-input
             type="text"
@@ -59,6 +58,7 @@
                     </tbody>
                 </table>
             @endif
+            {{ $familias_dinossauros->links() }}
     </div>
     @livewireScripts
 </div>

@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Dinossauro;
 use App\Models\Dinossauro;
 use App\Models\FamiliaDinossauro;
 use App\Models\TipoDinossauro;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class DinossauroCreate extends Component
@@ -33,10 +35,11 @@ class DinossauroCreate extends Component
         Dinossauro::create([
             'no_dinossauro'         => $this->no_dinossauro,
             'cd_familia_dinossauro' => $this->cd_familia_dinossauro,
-            'cd_tipo_dinossauro'    => $this->cd_tipo_dinossauro
+            'cd_tipo_dinossauro'    => $this->cd_tipo_dinossauro,
+            'dt_inclusao'           => Carbon::now()
         ]);
 
-        session()->flash('message', 'Registro criado com sucesso!');
+        Session::flash('msg_sucesso', 'Registro criado com sucesso!');
 
         $this->no_dinossauro         = null;
         $this->cd_familia_dinossauro = null;
