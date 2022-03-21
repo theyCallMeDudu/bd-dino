@@ -17,7 +17,7 @@ class Dinossauro extends Model
         'cd_familia_dinossauro',
         'cd_tipo_dinossauro',
         'no_dinossauro',
-        'tm_dinossauro',
+        'ft_dinossauro',
         'dt_inclusao'
     ];
 

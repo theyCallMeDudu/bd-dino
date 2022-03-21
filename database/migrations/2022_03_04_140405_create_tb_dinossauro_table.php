@@ -14,6 +14,7 @@ class CreateTbDinossauroTable extends Migration
             $table->integer('cd_familia_dinossauro')->unsigned()->index();
             $table->integer('cd_tipo_dinossauro')->unsigned()->index();
             $table->string('no_dinossauro');
+            $table->longText('ft_dinossauro')->nullable();
             $table->dateTime('dt_inclusao')->default(Carbon::now());
             $table->foreign('cd_familia_dinossauro')->references('cd_familia_dinossauro');
             $table->foreign('cd_tipo_dinossauro')->references('cd_tipo_dinossauro');

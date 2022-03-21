@@ -25,7 +25,7 @@
                 class="rounded-lg shadow border-t w-full mb-5 focus:ring-lime-500 focus:border-lime-500"
             >
             @error('no_dinossauro')
-                <h5>{{ $message }}</h5>
+                <h5 class="text-red-600">{{ $message }}</h5>
             @enderror
 
             <label class="text-yellow-900 font-bold">Família</label>
@@ -40,7 +40,7 @@
                 @endforeach
             </select>
             @error('cd_familia_dinossauro')
-                <h5>{{ $message }}</h5>
+                <h5 class="text-red-600">{{ $message }}</h5>
             @enderror
 
             <label class="text-yellow-900 font-bold">Tipo</label>
@@ -55,7 +55,18 @@
                 @endforeach
             </select>
             @error('cd_tipo_dinossauro')
-                <h5>{{ $message }}</h5>
+                <h5 class="text-red-600">{{ $message }}</h5>
+            @enderror
+
+            <label class="text-yellow-900 font-bold">Foto</label>
+            <input
+                type="file"
+                name="ft_dinossauro"
+                wire:model="ft_dinossauro"
+                class="rounded-lg shadow border-t w-full mb-5 focus:ring-lime-500 focus:border-lime-500"
+            >
+            @error('ft_dinossauro')
+                <h5 class="text-red-600">{{ $message }}</h5>
             @enderror
 
             <button

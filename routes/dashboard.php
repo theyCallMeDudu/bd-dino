@@ -20,7 +20,8 @@ use App\Http\Livewire\TipoDinossauro\{
 use App\Http\Livewire\Dinossauro\{
     DinossauroCreate,
     DinossauroList,
-    DinossauroEdit
+    DinossauroEdit,
+    DinossauroShow
 };
 
 
@@ -49,4 +50,5 @@ Route::prefix('dinossauros')->name('dinossauros.')->group(function() {
     Route::get('/', DinossauroList::class)->name('index');
     Route::get('/create', DinossauroCreate::class)->name('create');
     Route::get('/edit/{dinossauro}', DinossauroEdit::class)->name('edit');
+    Route::get('/show/{dinossauro}', DinossauroShow::class)->name('show');
 });

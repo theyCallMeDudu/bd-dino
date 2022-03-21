@@ -1,4 +1,8 @@
-<div>
+<div
+    x-data="{
+        showVerDinossauro: @entangle('showVerDinossauro'),
+    }"
+>
     <x-slot name="header">
         <p class="text-2xl font-bold text-yellow-900 underline">Dinossauros</p>
     </x-slot>
@@ -44,6 +48,12 @@
                                 <td class="px-6 py-4">{{ $dino->tipo->no_tipo_dinossauro }}</td>
                                 <td class="px-6 py-4">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $dino->dt_inclusao)->format('d/m/Y') }}</td>
                                 <td class="px-6 py-4">
+                                    <a
+                                        class="bg-yellow-700 py-2 px-2 text-white rounded-lg mr-2 hover:bg-yellow-900"
+                                        href="{{ route('dinossauros.show', $dino->cd_dinossauro) }}"
+                                    >
+                                        Visualizar
+                                    </a>
                                     <a
                                         class="bg-indigo-600 py-2 px-2 text-white rounded-lg mr-2 hover:bg-indigo-800"
                                         href="{{ route('dinossauros.edit', $dino->cd_dinossauro) }}"
