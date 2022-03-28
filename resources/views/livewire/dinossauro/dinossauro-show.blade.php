@@ -19,6 +19,8 @@
 
                     @if (!is_null($dinossauro->ft_dinossauro))
                     <img src="{{ asset('storage/' . $dinossauro->ft_dinossauro)  }}" alt="Foto do dinossauro">
+                    @else
+                    <img src="{{ url('img/sem-imagem.jpg') }}" alt="Foto do dinossauro">
                     @endif
                     <hr class="my-1">
                     <table>
